@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Sign in</h1>
+	<!-- action - what url should be used when the form is submitted here nothing uses current address  -->
+	<!-- method - what HTTP request method should be used to GET adds info to URL -->
+	<!-- nonvalidate - since the html will not validate flask will be responsible for it -->
+	<form action="" method="post" novalidate>
+		{{ form.hidden_tag() }}
+		<p>
+			{{ form.username.label }}<br>
+			{{ form.username(size=32) }}
+			{% for error in form.username.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+		</P>
+		<p>
+			{{ form.password.label }}<br>
+			{{ form.password(size=32) }}
+			{% for error in form.password.errors %}
+			<span style="color: red;">[{{ error }}]</span>
+			{% endfor %}
+		</p>
+		<p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+		<p>{{ form.submit() }}</p>
+	</form>
+{% endblock %}
+
