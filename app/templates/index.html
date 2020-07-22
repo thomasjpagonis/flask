@@ -4,7 +4,7 @@
 <!-- content is the block name and is defined in base.html -->
 <!-- Everything in here will be placed in the block -->
 {% block content %}
-	<h1>Hi, {{ user.username }}!</h1>
+	<h1>Hi, {{ current_user.username }}!</h1>
 	{% for post in posts %}
 	<div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
 	{% endfor %}
